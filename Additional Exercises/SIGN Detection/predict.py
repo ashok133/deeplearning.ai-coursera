@@ -34,7 +34,8 @@ def predict_sign(image_loc):
     print(type(image))
     with open('learned_model/params.pickle', 'rb') as handle:
         params = pickle.load(handle)
-        my_image = scipy.misc.imresize(image, size=(64,64)).reshape((1, 64*64*3)).T
+        my_image = scipy.misc.imresize(image, size=(28,28)).reshape((1, 3136)).T
+        print(my_image.shape)
         my_image_prediction = predict(my_image, params)
         plt.imshow(image)
         print("The network predicts a sign of :  " + str(np.squeeze(my_image_prediction)))
@@ -52,4 +53,4 @@ def predict_sign(image_loc):
 
 # predict_sign('sample_images/two.jpg')
 
-img_to_base64('sample_images/two.jpg')
+img_to_base64('sample_images/digit_six.gif')

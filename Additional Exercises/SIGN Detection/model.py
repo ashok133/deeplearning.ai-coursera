@@ -8,6 +8,7 @@ import pickle
 import matplotlib.pyplot as plt
 import tensorflow as tf
 from tensorflow.python.framework import ops
+from tensorflow.python.keras.datasets import mnist
 from utils import *
 
 np.random.seed(1)
@@ -20,18 +21,21 @@ def get_data():
     Fetch the data and prepare train_test splits
     """
 
-    X_train_orig, Y_train_orig, X_test_orig, Y_test_orig, classes = load_dataset()
+    (X_train_orig, Y_train_orig), (X_test_orig, Y_test_orig) = mnist.load_data()
+    classes = 10
 
     X_train_flatten = X_train_orig.reshape(X_train_orig.shape[0], -1).T
     X_test_flatten = X_test_orig.reshape(X_test_orig.shape[0], -1).T
+    print("************" + str(X_train_orig.shape[0]))
+    # X_test_flatten = X_test_orig.reshape(X_test_orig.shape[0], -1).T
 
     # Normalize image vectors
     X_train = X_train_flatten/255.0
     X_test = X_test_flatten/255.0
 
     # Convert training and test labels to one hot matrices
-    Y_train = convert_to_one_hot(Y_train_orig, 6)
-    Y_test = convert_to_one_hot(Y_test_orig, 6)
+    Y_train = convert_to_one_hot(Y_train_orig, classes)
+    Y_test = convert_to_one_hot(Y_test_orig, classes)
 
     return X_train, Y_train, X_test, Y_test
 
@@ -110,7 +114,7 @@ def compute_cost(Z3, Y):
     return cost
 
 def model(X_train, Y_train, X_test, Y_test, learning_rate = 0.0001,
-          num_epochs = 2000, minibatch_size = 128, print_cost = True):
+          num_epochs = 30, minibatch_size = 32, print_cost = True):
     """
     Implementing a three-layer neural network to classify hand signs (numbers): LINEAR->RELU->LINEAR->RELU->LINEAR->SOFTMAX
     Optimizer - Adaptive momentum (Adam)
@@ -129,7 +133,6 @@ def model(X_train, Y_train, X_test, Y_test, learning_rate = 0.0001,
             4. Update params
     3. Return params
     """
-
     # saver = tf.train.Saver()                          # to save the learned model
 
     ops.reset_default_graph()                         # to be able to rerun the model without overwriting tf variables

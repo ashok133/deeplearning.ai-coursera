@@ -2,7 +2,7 @@ var apiCallerApp = new Vue({
 	el: '#apiCallerDiv',
 	data : {
 		// possibe
-		prediction_text: ''
+		prediction_text: 'X'
 		},
 	  methods: {
       detectSimilarImages() {
@@ -51,6 +51,17 @@ var apiCallerApp = new Vue({
   			.catch( function(err){
   				console.log(err)
   			})
+			},
+			fetchBase64FromLoc(canvas, img_id) {
+				var c = document.getElementById('img-canvas');
+				var ctx = c.getContext("2d");
+				var img = document.getElementById('sample-img-one');
+				ctx.drawImage(img, 1, 1);
+				return (c.toDataURL('image/jpeg'));
+			},
+			fetchSampleResults(canvas, img_id) {
+				var b64 = apiCallerApp.fetchBase64FromLoc(canvas, img_id);
+				apiCallerApp.fetchSimilarImageResults(b64);
 			}
 	  },
 
