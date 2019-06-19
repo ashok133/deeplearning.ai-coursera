@@ -12,7 +12,7 @@ Over 2000 epochs on mini-batch ADAM Optimizer:
 Train Accuracy: 0.999074 
 Test Accuracy: 0.7333335 
 ```
-(Model clearly overfits, possible reasons - shallow nature, not enough data (1080 samples))
+(Model clearly overfits but works reasonably well, possible reasons - shallow nature, not enough data (1080 samples))
 
 ### Usage
 Train
