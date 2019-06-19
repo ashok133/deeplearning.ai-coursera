@@ -1,4 +1,4 @@
-# Hand Sign Recognition - Alphabets 
+# Hand Sign Recognition - Alphabets
 ## 3-layer shallow network trained on a TF Session
 ------
 ### Content

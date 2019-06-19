@@ -114,9 +114,9 @@ def model(X_train, Y_train, X_test, Y_test, num_epochs, learning_rate, minibatch
     Implementing a three-layer neural network to classify hand signs (alphabets): LINEAR->RELU->LINEAR->RELU->LINEAR->SOFTMAX
     Optimizer - Adaptive momentum (Adam)
     Regularization - None
-    Batch size - mini-batch; each of size 64
-    Iterations - 1500
-    LR - 0.0001
+    Batch size - user input
+    Iterations - user input
+    LR - user input
 
     Steps:
     1. Init Parameters
