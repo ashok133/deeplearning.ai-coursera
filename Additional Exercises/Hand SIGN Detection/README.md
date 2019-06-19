@@ -23,6 +23,24 @@ Classify
 ```
 $ python3 predict.py '/path-to-img/img'
 ```
+
+### REST Call
+Returns classification result for image in request 
+* **POST URL**
+```
+https://sign-classifier.appspot.com/predict_sign
+```
+* **Request Body**
+```
+{
+	"base64_str": <img base64 string>
+}
+```
+
+* **Success Response**
+  * **Code:** 200 <br />
+    **Content:** `{ prediction : prediction_class }`
+
 ### Sample tests
 ![Test 1](test1.png)
 ![Test 1](test2.png)
