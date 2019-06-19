@@ -111,7 +111,7 @@ def compute_cost(Z3, Y):
 
 def model(X_train, Y_train, X_test, Y_test, num_epochs, learning_rate, minibatch_size, print_cost = True):
     """
-    Implementing a three-layer neural network to classify hand signs (numbers): LINEAR->RELU->LINEAR->RELU->LINEAR->SOFTMAX
+    Implementing a three-layer neural network to classify hand signs (alphabets): LINEAR->RELU->LINEAR->RELU->LINEAR->SOFTMAX
     Optimizer - Adaptive momentum (Adam)
     Regularization - None
     Batch size - mini-batch; each of size 64
