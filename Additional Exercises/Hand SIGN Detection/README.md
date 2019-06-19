@@ -6,6 +6,14 @@
 * utils.py - helper functions for model training
 * predict.py - image preprocessing and prediction
 
+### Performance
+Over 2000 epochs on mini-batch ADAM Optimizer:
+```
+Train Accuracy: 0.999074 
+Test Accuracy: 0.7333335 
+```
+(Model clearly overfits, possible reasons - shallow nature, not enough data (1080 samples))
+
 ### Usage
 Train
 ```
