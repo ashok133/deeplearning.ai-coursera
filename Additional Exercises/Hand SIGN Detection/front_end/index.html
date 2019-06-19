@@ -1,0 +1,150 @@
+<html>
+<head>
+  <title>Sign Detection</title>
+
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styler.css">
+
+  <!-- Compiled and minified CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+   <!-- Compiled and minified JavaScript -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- vue js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <!-- webcamjs -->
+  <script type="text/javascript" src="js/webcam.js"></script>
+
+</head>
+<body>
+
+      <div class="container">
+
+        <div id="apiCallerDiv">
+
+          <div class="row content">
+            <h5><b>Had Sign Number Detection from Scratch - 3-layer shallow NN on a TF Session</b></h5>
+            <h5>Click on sample images to try, or upload an image</h5>
+            <br>
+            <div class="row">
+              <div class="col s2 m2 l2 sample-img-div">
+                <a href="img/one.jpg" download><img src="img/one.jpg" id="sample-img-one" class="sample-img"></a>
+                <!-- <a href="/images/myw3schoolsimage.jpg" download><img src="img/sample.jpg" id="sample-img-one" class="sample-img" @click="fetchSampleResults" crossOrigin="Anonymous"></a>                 -->
+              </div>
+              <div class="col s2 m2 l2 sample-img-div">
+                <a href="img/two.jpg" download><img src="img/two.jpg" id="sample-img-one" class="sample-img"></a>
+              </div>
+              <div class="col s2 m2 l2 sample-img-div">
+                <a href="img/three.jpg" download><img src="img/three.jpg" id="sample-img-one" class="sample-img"></a>
+              </div>
+              <div class="col s2 m2 l2 sample-img-div">
+                <a href="img/four.jpg" download><img src="img/four.jpg" id="sample-img-one" class="sample-img"></a>
+              </div>
+              <div class="col s2 m2 l2 sample-img-div">
+                <a href="img/five.jpg" download><img src="img/five.jpg" id="sample-img-one" class="sample-img"></a>
+              </div>
+              <!-- <div class="col s2 m2 l2 sample-img-div">
+                <a href="img/sample.jpg" download><img src="img/sample.jpg" id="sample-img-one" class="sample-img"></a>
+              </div> -->
+            </div>
+            <div class="row">
+              <div class="col s12 m6 l6 photo-section">
+                <div class="row">
+                  <div id="sign-image">
+                    <img id="src-decoded" src="img/sample2.jpg">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 m12 l12">
+                    <!-- <button class="action-button"><input type = "file" id="src-img"/>Upload</button> -->
+                    <div class="upload-btn-wrapper">
+                      <button class="action-button">Choose a file</button>
+                      <input type="file" name="myfile" id="src-img"/>
+                    </div>
+                  </div>
+
+                  <!-- <div class="col s6 m6 l6">
+                    <button class="action-button" onClick="take_snapshot()">Capture</button>
+                  </div> -->
+                </div>
+              </div>
+
+              <div class="col s12 m6 l6 results-section">
+                <div class="row">
+                  <div class="results-box">
+                    <p class="prediction" align = "center">{{prediction_text}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 m12 l12 ">
+                    <button class="classify-button" @click="detectSimilarImages">Classify</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+
+        <!-- <div class="about-card">
+
+          <h5>Step 1: Choose an image</h5>
+
+          <p id="src-b64"></p>
+
+          <div class="col s12 m6">
+            <div class = "file-field input-field">
+              <div style="background: white; color: #2196F3;" class = "btn">
+                  <span>Browse</span>
+                  <input type = "file" id="src-img"/>
+              </div>
+              <div class = "file-path-wrapper">
+                  <input class = "file-path validate" type = "text" placeholder = "Upload image" />
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col s6 m6">
+              <div class="card">
+                <div class="card-image">
+                  <img id="src-decoded" src="images/sample.jpg">
+                </div>
+              </div>
+              <div class="card-panel blue" style=" padding:5px 16px 5px 16px;">
+                <p class="main-label-card"><span class="white-text main-label-card"><b>{{prediction_text}}</b>
+                </span></hp>
+              </div>
+            </div>
+
+          </div>
+
+
+
+          <h5>Step 2: Hit 'Detect' to identify the sign</h5>
+
+          <button style="background: white; color: #2196F3;" type="button" class="btn btn-secondary" @click="detectSimilarImages">detect</button>
+
+          <br>
+          <br>
+
+      </div> -->
+
+      <div class="copyright-card">
+        <h6>2019 - <a href="#">Ashok Patel</a></h6>
+      </div>
+      <!-- <script type="text/javascript" src="js/webcam_setup.js"></script> -->
+      <script src="js/apiCaller.js"></script>
+
+    </body>
+</html>
